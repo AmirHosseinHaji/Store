@@ -1,0 +1,27 @@
+﻿@model IEnumerable<OrderDetail>
+@{
+    ViewData["Title"] = "ShowCartUser";
+    
+}
+
+<h1>ShowCartUser</h1>
+
+<div class="row" dir="rtl">
+    <table class="table table-striped">
+        <tr>
+            <th>نام کالا</th>
+            <th>قیمت کالا</th>
+            <th>تخفیف</th>
+            <th>قیمت کل</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.kala.Name</td>
+                <td>@item.kala.Price</td>
+                <td>@item.kala.Discount</td>
+                <td>@item.getTotalPrice()</td>
+            </tr>
+        }
+    </table>
+</div>

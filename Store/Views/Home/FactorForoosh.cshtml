@@ -1,0 +1,111 @@
+﻿@model FactorForoosh
+
+@{
+    ViewBag.Title = "FactorForoosh";
+}
+
+<h2>فاکتور فروش</h2>
+
+
+<body dir="rtl">
+
+    @using (Html.BeginForm())
+    {
+
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <label>نام خریدار</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Namebuyer, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Namebuyer, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div>
+                <label>سال مالی</label>
+                <select id="options" name="salmally" style="
+
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.375rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;margin-bottom:10px" required>
+                    <option>1390</option>
+                    <option>1391</option>
+                    <option>1392</option>
+                    <option>1393</option>
+                    <option>1394</option>
+                    <option>1395</option>
+                    <option>1396</option>
+                    <option>1397</option>
+                    <option>1398</option>
+                    <option>1399</option>
+                    <option>1400</option>
+                    <option>1401</option>
+                    <option>1402</option>
+                    @Html.ValidationMessageFor(model => model.salmally, "", new { @class = "text-danger" })
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>کالا</label>
+                <div class="col-md-10">
+                    <input id="MyButton" style="margin-right:0px;margin-left:10px;border:1px solid black" type="button">
+                    <table class="table table-bordered" id="myTable">
+                        <thead>
+                            <tr>
+                                <th scope="col">نام کالا</th>
+                                <th scope="col">تعداد واحد</th>
+                                <th scope="col">مبلغ هر واحد</th>
+                                <th scope="col">مبلغ کل</th>
+                            </tr>
+						</thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row">
+                                    <input type="text" />
+                                </td>
+                                <td scope="row">
+                                    <input type="text" />
+                                </td>
+                                <td scope="row">
+                                    <input type="text" />
+                                </td>
+                                <td scope="row">
+                                    <input type="text" />
+                                </td>
+                            </tr>
+						</tbody>
+                    </table>
+                    @Html.ValidationMessageFor(model => model.Kala, "", new { @class = "text-danger" })
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="ثبت" class="btn btn-success mt-2" />
+                </div>
+            </div>
+        </div>
+        <script src="~/js/site.js"></script>
+    }
+
+</body>
+
+
+

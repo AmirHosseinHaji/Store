@@ -1,0 +1,92 @@
+﻿@model Kala
+
+@{
+    ViewBag.Title = "Detail";
+}
+
+<h2>Detail</h2>
+<body dir="rtl">
+
+    <div>
+        <h4>Kala</h4>
+        <hr />
+        <dl class="dl-horizontal">
+
+            <dt>
+                <label>نام</label>
+            </dt>
+
+            <dd style="margin-right:0px">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                <label>نوع کالا</label>
+            </dt>
+
+            <dd style="margin-right:0px">
+                @Html.DisplayFor(model => model.Typekala)
+            </dd>
+
+            <dt>
+                <label>واحد کالا</label>
+            </dt>
+
+            <dd style="margin-right:0px">
+                @Html.DisplayFor(model => model.Unit)
+            </dd>
+
+            <dt>
+                <label>مقدار کالا</label>
+            </dt>
+
+            <dd style="margin-right:0px">
+                @Html.DisplayFor(model => model.Count)
+            </dd>
+
+            <dt>
+                <label>قیمت کالا</label>
+            </dt>
+
+            <dd style="margin-right:0px">
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+
+            <dt>
+                <label>نام خریدار</label>
+            </dt>
+
+            <dd style="margin-right:0px">
+                @Html.DisplayFor(model => model.NameBuyer)
+            </dd>
+
+            <dt>
+                <label>تاریخ</label>
+            </dt>
+
+            <dd style="margin-right:0px">
+                @Html.DisplayFor(model => model.Date)
+            </dd>
+
+            <dt>
+                <lable>تخفیف</lable>
+            </dt>
+
+            <dd style="margin-right:0px">
+                @Html.DisplayFor(model => model.Discount)
+            </dd>
+
+            <dt>
+                <label>توضیحات</label>
+            </dt>
+
+            <dd style="margin-right:0px">
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+            <div style="margin-right:0px">
+                <a asp-controller="Product" asp-action="AddCartUser" class="btn btn-primary text-black text-decoration-none" asp-route-itemId="@Model.ItemId">افزودن به سبد خرید</a>
+            </div>
+        </dl>
+    </div>
+</body>
+

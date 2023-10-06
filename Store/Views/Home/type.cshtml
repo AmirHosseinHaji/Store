@@ -1,0 +1,41 @@
+﻿@model IEnumerable<TypeUser>
+@{
+    ViewBag.Title = "type";
+}
+
+<body dir="rtl">
+    <h4>نوع کالا</h4>
+
+    <form action="/Home/type" method="post">
+        <input Style="border-radius:5px " type="Text" name="TypeName" value="" required />
+        <input style="margin-bottom:10px;background-color:darkmagenta;border-radius:5px" type="submit" value="ثبت" />
+    </form>
+    <table class="table table-bordered"
+
+    <tr style="width:350px">
+        <th>
+            نام نوع
+        </th>
+        <th>
+            دستورات
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr style="width:350px">
+            <td style="color:red;">@Html.DisplayFor(Modelitem => item.TypeName)</td>
+
+            <td>
+                <button class="btn btn-warning text-decoration-underline">
+                    @Html.ActionLink("ویرایش ", "EditType", new { id = item.TypeId })
+
+                </button>
+                <button class="btn btn-danger" style="background-color:red ">
+                    @Html.ActionLink("حذف", "DeleteType", new { id = item.TypeId })
+                </button>
+            </td>
+        </tr>
+    }
+
+</table>
+</body>

@@ -1,0 +1,43 @@
+﻿@model IEnumerable<FactorForoosh>
+
+@{
+    ViewBag.Title = "FactorForooshList";
+}
+
+<h2>فاکتور فروش های شما</h2>
+<body dir="rtl">
+    <table class="table table-bordered">
+        <tr>
+            <th>
+                نام خریدار
+            </th>
+            <th>
+                سال مالی
+            </th>
+            <th>
+                کالا
+            </th>
+            <th>دستورات</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Namebuyer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.salmally)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Kala)
+                </td>
+                <td>
+                    <button class="btn btn-warning">@Html.ActionLink("ویرایش", "EditFactorForoosh", new { id = item.Id })</button> |
+                    <button class="btn btn-danger">@Html.ActionLink("حذف", "DeleteFactorForoosh", new { id = item.Id })</button>
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>

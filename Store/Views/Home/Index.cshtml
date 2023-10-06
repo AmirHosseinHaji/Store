@@ -1,0 +1,90 @@
+﻿@model IEnumerable<Kala>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<body dir="rtl">
+    <h2>کالاها</h2>
+    <h5 id="count">تعداد حساب ها :@ViewBag.Count</h5>
+    <table class="table  border border-success  text-center" style="background-color:#f6f4f4">
+        <tr class="border-5">
+            <th>
+                نام کالا
+            </th>
+            <th>
+                نوع کالا
+            </th>
+            <th>
+                وزن /  تعداد / مقدار
+            </th>
+            <th>
+                قیمت کالا به ریال
+            </th>
+            <th>
+                واحد کالا
+            </th>
+            <th>
+                نام خریدار
+            </th>
+            <th>
+                تاریخ/زمان
+            </th>
+            <th>
+                تخفیف
+            </th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr class="table  border border-success text-center">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Typekala)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Count)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Unit)
+                </td>
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.NameBuyer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Discount)
+                </td>
+
+                <td>
+                    <button class="btn btn-warning text-decoration-none">
+                        @Html.ActionLink("جزئیات ", "Detail", new { id = item.KalaId })
+
+                    </button>
+                    <button class="btn btn-info text-decoration-none">
+                        @Html.ActionLink("ویرایش ", "Edit", new { id = item.KalaId })
+
+                    </button>
+                    <button class="btn btn-danger" style="background-color:red ">
+                        @Html.ActionLink("حذف", "Delete", new { id = item.KalaId })
+                    </button>
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    <div id="savebutton">
+        <button style="border:none" value=""><a href="/Home/Create" class="btn btn-success">ثبت کالای جدید</a></button>
+    </div>
+    <script src="~/js/saveButton.js"></script>
+</body>

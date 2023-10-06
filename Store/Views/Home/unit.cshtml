@@ -1,0 +1,41 @@
+﻿@model IEnumerable<UnitUser>
+@{
+    ViewBag.Title = "type";
+}
+
+<body dir="rtl">
+    <h4>واحد کالا</h4>
+
+    <form action="/Home/unit" method="post">
+        <input Style="border-radius:5px " type="Text" name="UnitName" value="" required />
+        <input style="margin-bottom:10px;background-color:darkmagenta;border-radius:5px" type="submit" value="ثبت" />
+    </form>
+    <table class="table table-bordered" style="width:350px">
+
+        <tr>
+            <th>
+                نام واحد
+            </th>
+            <th>
+                دستورات
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="color:red;">@Html.DisplayFor(Modelitem => item.UnitName)</td>
+
+                <td>
+                    <button class="btn btn-warning text-decoration-underline">
+                        @Html.ActionLink("ویرایش ", "EditUnit", new { id = item.UnitId })
+
+                    </button>
+                    <button class="btn btn-danger" style="background-color:red ">
+                        @Html.ActionLink("حذف", "DeleteUnit", new { id = item.UnitId })
+                    </button>
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
